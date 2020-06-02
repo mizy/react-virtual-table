@@ -12,7 +12,7 @@ let webpackConfig = {
 		index: "index.html",
 		open: true,
 		host: "0.0.0.0",
-		openPage: "./index.html",
+		openPage: "./demo/index.html",
 		hot: true,
 	},
 	stats: "minimal",
