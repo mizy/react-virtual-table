@@ -1,0 +1,52 @@
+{
+	"presets": [
+		[
+			"@babel/preset-env",
+			{
+				"corejs": {
+					"version": 3
+				},
+				"useBuiltIns": "usage",
+				"targets": {
+					"ie": 9,
+					"chrome": 52,
+					"safari": 10,
+					"opera": 32,
+					"firefox": 30
+				}
+			}
+		],
+		"@babel/preset-react"
+	],
+	"plugins": [
+		[
+			"@babel/plugin-transform-modules-commonjs",
+			{
+				"allowTopLevelThis": true
+			}
+		],
+		[
+			"@babel/plugin-proposal-decorators",
+			{
+				"legacy": true
+			}
+		],
+		"@babel/plugin-syntax-dynamic-import",
+		"@babel/plugin-syntax-import-meta",
+		[
+			"@babel/plugin-proposal-class-properties",
+			{
+				"loose": true
+			}
+		],
+		"@babel/plugin-transform-runtime",
+		[
+			"import",
+			{
+				"libraryName": "antd",
+				"libraryDirectory": "es",
+				"style": "css"
+			}
+		],
+	]
+}
