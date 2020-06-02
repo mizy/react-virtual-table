@@ -4,7 +4,7 @@
 + 支持表格宽度拖拽调节
 
 # demo
-[base](./dist/index.html)
+[base](https://mizy.github.io/react-virtual-table/dist/index.html)
 
 # snapshot
 ![](./snapshot.png)
