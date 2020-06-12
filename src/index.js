@@ -24,7 +24,7 @@ class ReactVirtualSizeTable extends Component {
 
 	renderCell() {
 		const {onCell, rowCount, columnCount, width, height, rowHeight} = this.props;
-		let startColumn ; let endColumn; let startRow ;let endRow;
+		let startColumn ; let endColumn=columnCount-1; let startRow ;let endRow;
 		const {scrollLeft, scrollTop} = this.state;
 
 		// 开始计算滚动到哪个区间
@@ -41,11 +41,11 @@ class ReactVirtualSizeTable extends Component {
 		}
 
 		startRow = Math.floor(scrollTop / rowHeight);
-		endRow = Math.ceil((scrollTop + height) / rowHeight) - 1;
+		endRow = Math.min(Math.ceil((scrollTop + height) / rowHeight) - 1, rowCount);
 
 		const cells = [];
 		for (let i = startColumn;i <= endColumn;i++) {
-			for (let j = startRow;j <= endRow;j++) {
+			for (let j = startRow;j < endRow;j++) {
 				cells.push(onCell({rowIndex: j, columnIndex: i, key: `${i}_${j}`, style: {
 					position: "absolute",
 					transform: `translate(${this.cacheWidths[i - 1] || 0}px,${j * rowHeight}px)`,

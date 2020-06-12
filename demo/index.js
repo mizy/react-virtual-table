@@ -80,7 +80,6 @@ export default class Demo extends Component {
 					width={width}
 					style={{ width: "100%", padding: "0 20px" }}
 				/>
-
 			</div>
 		);
 	}

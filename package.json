@@ -1,6 +1,6 @@
 {
   "name": "react-virtual-table",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A virtualize table that can resize column",
   "keywords": [
     "virtualize table",
