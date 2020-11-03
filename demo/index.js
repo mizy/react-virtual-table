@@ -45,11 +45,8 @@ export default class Demo extends Component {
 					</Resizable>
 				) : (
 					
-						<div
-							style={style}
-							className="table-content"
-							onDoubleClick={() => this.onDoubleClick(tableData[rowIndex])}
-						>
+						<div style={style} className="table-content"
+							onDoubleClick={() => this.onDoubleClick(tableData[rowIndex])} >
 							{text}
 						</div>
 				)}
@@ -75,6 +72,7 @@ export default class Demo extends Component {
 					columnCount={columnNames.length}
 					widths={widthArray}
 					height={250}
+					fixHead={true}
 					rowCount={tableData.length}
 					rowHeight={36}
 					width={width}

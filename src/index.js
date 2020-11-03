@@ -23,7 +23,7 @@ class ReactVirtualSizeTable extends Component {
 	}
 
 	renderCell() {
-		const {onCell, rowCount, columnCount, width, height, rowHeight} = this.props;
+		const {onCell, rowCount, columnCount, width, height, rowHeight,fixHead} = this.props;
 		let startColumn ; let endColumn=columnCount-1; let startRow ;let endRow;
 		const {scrollLeft, scrollTop} = this.state;
 
@@ -44,8 +44,19 @@ class ReactVirtualSizeTable extends Component {
 		endRow = Math.min(Math.ceil((scrollTop + height) / rowHeight) - 1, rowCount);
 
 		const cells = [];
+		
 		for (let i = startColumn;i <= endColumn;i++) {
+			if(fixHead){
+				cells.push(onCell({rowIndex: 0, columnIndex: i, key: `${i}_${0}`, style: {
+					position: "absolute",
+					transform: `translate(${this.cacheWidths[i - 1] || 0}px, ${scrollTop}px)`,
+					width: this.widths[i],
+					height: rowHeight
+				}}));
+			}
+
 			for (let j = startRow;j < endRow;j++) {
+				if(fixHead&&j===0){continue}
 				cells.push(onCell({rowIndex: j, columnIndex: i, key: `${i}_${j}`, style: {
 					position: "absolute",
 					transform: `translate(${this.cacheWidths[i - 1] || 0}px,${j * rowHeight}px)`,
