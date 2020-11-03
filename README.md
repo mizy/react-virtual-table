@@ -5,6 +5,7 @@
 
 # demo
 [base](https://mizy.github.io/react-virtual-table/dist/index.html)
+源码见github
 
 # snapshot
-![](./snapshot.png)
+![](https://mizy.github.io/react-virtual-table/snapshot.png)

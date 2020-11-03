@@ -1,6 +1,6 @@
 {
   "name": "react-virtual-table",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "description": "A virtualize table that can resize column",
   "keywords": [
     "virtualize table",
@@ -8,6 +8,7 @@
     "resize column",
     "column resize"
   ],
+  "files": ["./dist/index.js"],
   "main": "./dist/index.js",
   "scripts": {
 	"start": "webpack-dev-server",
@@ -17,6 +18,8 @@
   },
   "author": "mizy.mz",
   "license": "ISC",
+  "homepage": "https://mizy.github.io/react-virtual-table",
+  "repository":"git@github.com:mizy/react-virtual-table.git",
   "devDependencies": {
     "@babel/core": "^7.10.2",
     "@babel/plugin-proposal-class-properties": "^7.10.1",
