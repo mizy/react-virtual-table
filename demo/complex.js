@@ -4,8 +4,10 @@ import { Resizable } from "react-resizable";
 import "./index.less";
 import ReactVirtualSizeTable from "../src/index";
 
+const columnNames = [];
 const tableData = [];
-for(let i =0 ;i<10;i++){
+for(let i =0 ;i<1000;i++){
+	columnNames.push(`column_${i}`);
 	const row = {};
 	for(let j = 0;j<1000;j++){
 		row[`column_${j}`] = (i+j);
@@ -30,7 +32,7 @@ export default class Demo extends Component {
 
 	renderCell = ({ columnIndex, key, rowIndex, style }) => {
 		const {widths} = this.state;
-		const field =`column_${columnIndex}`;
+		const field = columnNames[columnIndex];
 		const text = rowIndex === 0 ? field : tableData[rowIndex] && tableData[rowIndex][field];
 		return (
 			<Fragment key={key}>
@@ -57,7 +59,7 @@ export default class Demo extends Component {
 		const { widths } = this.state;
 
 		// 同步
-		const widthArray = new Array(1000).fill(140);
+		const widthArray = columnNames.map(()=>140);
 		for (let key in widths) {
 			widthArray[key] = widths[key];
 		}
@@ -66,8 +68,8 @@ export default class Demo extends Component {
 		return (
 			<div className={"res-table"}>
 				<ReactVirtualSizeTable
-					onCell={(value) => this.renderCell(value)}
-					columnCount={1000}
+					onCell={(value) => this.renderCell(value, columnNames, tableData)}
+					columnCount={columnNames.length}
 					widths={widthArray}
 					height={250}
 					fixHead={true}

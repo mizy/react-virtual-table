@@ -55,7 +55,7 @@ class ReactVirtualSizeTable extends Component {
 				}}));
 			}
 
-			for (let j = startRow;j < endRow;j++) {
+			for (let j = startRow;j <= endRow;j++) {
 				if(fixHead&&j===0){continue}
 				cells.push(onCell({rowIndex: j, columnIndex: i, key: `${i}_${j}`, style: {
 					position: "absolute",
@@ -73,6 +73,7 @@ class ReactVirtualSizeTable extends Component {
 			scrollLeft: e.target.scrollLeft,
 			scrollTop: e.target.scrollTop
 		});
+		this.props.onScroll&&this.props.onScroll(e)
 	}
 
 	render() {
