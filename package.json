@@ -1,6 +1,6 @@
 {
   "name": "react-virtual-table",
-  "version": "1.0.5",
+  "version": "1.1.1",
   "description": "A virtualize table that can resize column",
   "keywords": [
     "virtualize table",
@@ -9,13 +9,13 @@
     "column resize"
   ],
   "files": [
-    "./dist/index.js"
+    "dist"
   ],
   "types": "./types/index.d.ts",
   "main": "./dist/index.js",
   "scripts": {
-    "start": "webpack-dev-server",
-    "build": "webpack -p --config webpack.config.build.js",
+    "start": "webpack serve",
+    "build": "webpack --config webpack.config.build.js",
     "build:demo": "webpack -p",
     "makeDts": "npx -p typescript tsc -p ./dts.json"
   },
@@ -42,11 +42,12 @@
     "react-resizable": "^1.10.1",
     "style-loader": "^1.2.1",
     "webpack": "^5.72.0",
-    "webpack-cli": "^3.3.11",
+    "webpack-cli": "^4.9.2",
     "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "react-virtual-table": "^1.1.1"
   }
 }

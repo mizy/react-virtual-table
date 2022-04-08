@@ -1,4 +1,4 @@
- 
+
 
 
 let webpackConfig = {
@@ -6,7 +6,7 @@ let webpackConfig = {
 	output: {
 		filename: "main.js",
 	},
-	devtool: "cheap-module-eval-source-map" ,
+	devtool: "eval-source-map",
 	devServer: {
 		port: 8881,
 		index: "index.html",
@@ -39,5 +39,5 @@ let webpackConfig = {
 			}
 		]
 	},
-}; 
+};
 module.exports = webpackConfig;
