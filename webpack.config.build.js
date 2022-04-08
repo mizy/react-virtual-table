@@ -1,4 +1,4 @@
- 
+
 
 
 let webpackConfig = {
@@ -11,6 +11,10 @@ let webpackConfig = {
 	},
 	mode: "production",
 	stats: "minimal",
+	externals: {
+		react: 'react',
+		'react-dom': 'react-dom',
+	},
 	module: {
 		rules: [
 			{
@@ -24,6 +28,6 @@ let webpackConfig = {
 			},
 		]
 	},
-	
-}; 
+
+};
 module.exports = webpackConfig;

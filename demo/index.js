@@ -1,59 +1,59 @@
-import React, { Component, Fragment } from "react"; 
+import React, { Component, Fragment } from "react";
 import ReactDOM from 'react-dom';
 import { Resizable } from "react-resizable";
 import "./index.less";
 import ReactVirtualSizeTable from "../src/index";
 
 const tableData = [];
-for(let i =0 ;i<10;i++){
+for (let i = 0; i < 10; i++) {
 	const row = {};
-	for(let j = 0;j<1000;j++){
-		row[`column_${j}`] = (i+j);
+	for (let j = 0; j < 1000; j++) {
+		row[`column_${j}`] = (i + j);
 	}
 	tableData.push(row)
 }
 
 export default class Demo extends Component {
 	state = {
-		
+
 		widths: []
 	};
 
-	onResize = (index, value)=>{
-		const {widths} = this.state;
+	onResize = (index, value) => {
+		const { widths } = this.state;
 		widths[index] = value.size.width;
 		this.setState({
-			widths: {...widths}
+			widths: { ...widths }
 		});
 
 	}
 
 	renderCell = ({ columnIndex, key, rowIndex, style }) => {
-		const {widths} = this.state;
-		const field =`column_${columnIndex}`;
+		const { widths } = this.state;
+		const field = `column_${columnIndex}`;
 		const text = rowIndex === 0 ? field : tableData[rowIndex] && tableData[rowIndex][field];
 		return (
 			<Fragment key={key}>
 				{rowIndex === 0 ? (
 
-					<Resizable width={widths[columnIndex] || 140} height={36} onResize={(e, value)=>{this.onResize(columnIndex, value);}}>
+					<Resizable width={widths[columnIndex] || 140} height={36} onResize={(e, value) => { this.onResize(columnIndex, value); }}>
 						<div style={style} className="table-header">
 							{text}
 						</div>
 					</Resizable>
 				) : (
-					
-						<div style={style} className="table-content"
-							onDoubleClick={() => this.onDoubleClick(tableData[rowIndex])} >
-							{text}
-						</div>
+
+					<div style={style} className="table-content"
+						onDoubleClick={() => this.onDoubleClick(tableData[rowIndex])} >
+						{text}
+					</div>
 				)}
 			</Fragment>
 		);
 	}
 
 	render() {
-	
+
 		const { widths } = this.state;
 
 		// 同步
@@ -62,7 +62,7 @@ export default class Demo extends Component {
 			widthArray[key] = widths[key];
 		}
 
-		const width = window.innerWidth-50;
+		const width = window.innerWidth - 50;
 		return (
 			<div className={"res-table"}>
 				<ReactVirtualSizeTable
@@ -81,4 +81,4 @@ export default class Demo extends Component {
 	}
 
 }
-ReactDOM.render(<Demo />,document.getElementById("app"))
+ReactDOM.render(<Demo />, document.getElementById("app"))

@@ -8,18 +8,21 @@
     "resize column",
     "column resize"
   ],
-  "files": ["./dist/index.js"],
+  "files": [
+    "./dist/index.js"
+  ],
+  "types": "./types/index.d.ts",
   "main": "./dist/index.js",
   "scripts": {
-	"start": "webpack-dev-server",
-	"build": "webpack -p --config webpack.config.build.js",
-	"build:demo": "webpack -p",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "webpack-dev-server",
+    "build": "webpack -p --config webpack.config.build.js",
+    "build:demo": "webpack -p",
+    "makeDts": "npx -p typescript tsc -p ./dts.json"
   },
   "author": "mizy.mz",
   "license": "ISC",
   "homepage": "https://mizy.github.io/react-virtual-table",
-  "repository":"git@github.com:mizy/react-virtual-table.git",
+  "repository": "git@github.com:mizy/react-virtual-table.git",
   "devDependencies": {
     "@babel/core": "^7.10.2",
     "@babel/plugin-proposal-class-properties": "^7.10.1",
@@ -29,20 +32,21 @@
     "@babel/plugin-transform-runtime": "^7.10.1",
     "@babel/preset-env": "^7.10.2",
     "@babel/preset-react": "^7.10.1",
+    "babel-cli": "^6.26.0",
     "babel-loader": "^8.1.0",
     "babel-plugin-import": "^1.13.0",
+    "core-js": "^3.6.5",
     "css-loader": "^3.5.3",
     "html-webpack-plugin": "^4.3.0",
     "less-loader": "^6.1.0",
+    "react-resizable": "^1.10.1",
     "style-loader": "^1.2.1",
-    "webpack": "^4.43.0",
+    "webpack": "^5.72.0",
     "webpack-cli": "^3.3.11",
     "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
-    "core-js": "^3.6.5",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-resizable": "^1.10.1"
+    "react-dom": "^16.13.1"
   }
 }
